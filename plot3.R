@@ -5,6 +5,7 @@ data$Date  <- strptime(data$Date, format = "%d/%m/%Y")
 dataWork  <- data[data$Date == strptime("2007-02-01", "%Y-%m-%d") | data$Date == strptime("2007-02-02", "%Y-%m-%d"),]
 dataWork$Time  <- strptime(paste(dataWork$Date, dataWork$Time), "%Y-%m-%d %H:%M:%S", tz = "UTC")
 
+#Step by step we create our plot and then save it to the png file
 with(dataWork, plot(Time, y = Sub_metering_1, type = "l", col = "black", xlab = "", ylab = "Energy sub metering"))
 with(dataWork, lines(Time, y = Sub_metering_2, type = "l", col = "red"))
 with(dataWork, lines(Time, Sub_metering_3, type = "l", col = "blue"))
